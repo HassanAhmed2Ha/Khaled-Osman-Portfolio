@@ -233,19 +233,37 @@ export const contentEn: Content = {
     ]
   },
   publications: {
-    title: 'High-Impact Publications',
+    title: 'Featured Publications',
     items: [
       {
-        title: 'Ozone treatment as a green technology for removing acetamiprid residues',
+        title: 'Ozone treatment as a green technology for removing acetamiprid residues from some vegetables and its impact on the quality of vegetables',
         meta: '2025 — Journal of Food Composition and Analysis',
-        description: 'Latest research on green technology for residue removal and its impact on vegetable quality[cite: 388, 390].',
+        description: 'A pioneering study demonstrating the effectiveness of Ozone as a sustainable solution for pesticide removal while maintaining vegetable quality [cite: 388-390].',
         doi: '10.1016/j.jfca.2025.107975'
       },
       {
-        title: 'Monitoring of pesticide residues in vegetables marketed in Al-Qassim region',
+        title: 'Physicochemical and Spatial Distributions of Trace Elements and Organochlorine Compounds in Lake Idku Water, Egypt',
+        meta: '2025 — Water, Air, & Soil Pollution',
+        description: 'Comprehensive environmental analysis of water pollutants and their spatial distribution in critical Egyptian water resources [cite: 382-384].',
+        doi: '10.1007/s11270-025-07757-x'
+      },
+      {
+        title: 'Monitoring of pesticide residues in vegetables marketed in Al-Qassim region, Saudi Arabia',
         meta: '2010 — Ecotoxicology and Environmental Safety',
-        description: 'A landmark study assessing food safety and pesticide contamination in regional markets[cite: 270, 271].',
+        description: 'High-impact study (170+ Citations) assessing food safety and chemical exposure in regional consumer markets[cite: 270, 271].',
         doi: '10.1016/j.ecoenv.2010.08.033'
+      },
+      {
+        title: 'Estimated daily intake of pesticide residues exposure by vegetables grown in greenhouses in Al-Qassim Region',
+        meta: '2011 — Food Control',
+        description: 'Significant research (100+ Citations) on human health risk assessment related to greenhouse-cultivated crops[cite: 277, 278].',
+        doi: '10.1016/j.foodcont.2010.11.027'
+      },
+      {
+        title: 'Risk Assessment of Pesticide to Human and the Environment',
+        meta: '2003 — Saudi Journal of Biological Sciences',
+        description: 'A foundational framework for evaluating chemical risks and environmental safety protocols[cite: 229, 230].',
+        doi: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en'
       }
     ]
   },
@@ -507,30 +525,37 @@ export const contentAr: Content = {
     ]
   },
   publications: {
-    title: 'أبحاث منشورة عالمياً',
-    items: [
-      {
-        title: 'تكنولوجيا الأوزون كحل أخضر لإزالة متبقيات الأسيتاميبريد',
-        meta: '2025 — Journal of Food Composition and Analysis',
-        description: 'أحدث الأبحاث حول التكنولوجيا الخضراء لإزالة المتبقيات وتأثيرها على جودة الخضروات[cite: 388, 390].',
-        doi: '10.1016/j.jfca.2025.107975'
-      },
-      {
-        title: 'رصد متبقيات المبيدات في خضروات منطقة القصيم',
-        meta: '2010 — Ecotoxicology and Environmental Safety',
-        description: 'دراسة مرجعية لتقييم سلامة الغذاء وتلوث المبيدات في الأسواق الإقليمية[cite: 270, 271].',
-        doi: '10.1016/j.ecoenv.2010.08.033'
-      }
-    ]
-  },
-  publications: {
     title: 'أبحاث مختارة',
     items: [
       {
-        title: 'تكنولوجيا الأوزون كحل أخضر',
-        meta: '2025 — Journal of Food Composition',
-        description: 'أحدث الأبحاث حول إزالة المتبقيات.',
+        title: 'معالجة الأوزون كتكنولوجيا خضراء لإزالة متبقيات الأسيتاميبريد وتأثيرها على جودة الخضروات',
+        meta: '2025 — مجلة تحليل وتركيب الأغذية (Journal of Food Composition and Analysis)',
+        description: 'دراسة رائدة تثبت فعالية الأوزون كحل مستدام لإزالة المبيدات مع الحفاظ على القيمة الغذائية [cite: 388-390].',
         doi: '10.1016/j.jfca.2025.107975'
+      },
+      {
+        title: 'التوزيع المكاني للعناصر النزرة ومركبات الكلور العضوية في مياه بحيرة إدكو، مصر',
+        meta: '2025 — مجلة تلوث المياه والهواء والتربة (Water, Air, & Soil Pollution)',
+        description: 'تحليل بيئي شامل للملوثات المائية وتوزيعها المكاني في أحد أهم الموارد المائية المصرية [cite: 382-384].',
+        doi: '10.1007/s11270-025-07757-x'
+      },
+      {
+        title: 'رصد متبقيات المبيدات في الخضروات المسوقة في منطقة القصيم، المملكة العربية السعودية',
+        meta: '2010 — مجلة السموم البيئية والسلامة (Ecotoxicology and Environmental Safety)',
+        description: 'دراسة مرجعية (أكثر من 170 اقتباساً) لتقييم سلامة الغذاء والتعرض الكيميائي في الأسواق الإقليمية[cite: 270, 271].',
+        doi: '10.1016/j.ecoenv.2010.08.033'
+      },
+      {
+        title: 'تقدير المدخول اليومي من التعرض لمتبقيات المبيدات في الخضروات المزروعة في الصوبات الزراعية',
+        meta: '2011 — مجلة الرقابة على الأغذية (Food Control)',
+        description: 'بحث هام (أكثر من 100 اقتباس) حول تقييم المخاطر الصحية المرتبطة بالمحاصيل المحمية[cite: 277, 278].',
+        doi: '10.1016/j.foodcont.2010.11.027'
+      },
+      {
+        title: 'تقييم مخاطر المبيدات على الإنسان والبيئة',
+        meta: '2003 — المجلة السعودية للعلوم البيولوجية (Saudi Journal of Biological Sciences)',
+        description: 'إطار تأسيسي لتقييم المخاطر الكيميائية وبروتوكولات السلامة البيئية[cite: 229, 230].',
+        doi: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en'
       }
     ]
   },
