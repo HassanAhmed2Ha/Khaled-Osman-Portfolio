@@ -3,7 +3,7 @@ import { contentEn, contentAr } from './data';
 import { Content, Language } from './types';
 import { sendMessage, ContactFormData } from './contactService';
 
-// --- UPDATED ACADEMIC ICONS ---
+// --- ICONS ---
 const ChevronRight = () => (
   <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"></path></svg>
 );
@@ -22,197 +22,119 @@ const OrcidIcon = () => (
 
 const SocialIcons = ({ className = '' }: { className?: string }) => (
   <div className={`flex gap-4 ${className}`}>
-    <a href="https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar" className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-600 text-gray-400 hover:bg-amber-500 hover:text-gray-900 hover:border-amber-500 transition duration-300 transform hover:scale-110">
-      <GoogleScholarIcon />
-    </a>
-    <a href="https://www.scopus.com/authid/detail.uri?authorId=7006488585" target="_blank" rel="noreferrer" aria-label="Scopus Profile" className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-600 text-gray-400 hover:bg-amber-500 hover:text-gray-900 hover:border-amber-500 transition duration-300 transform hover:scale-110">
-      <ScopusIcon />
-    </a>
-    <a href="https://orcid.org/0000-0002-5977-2385" target="_blank" rel="noreferrer" aria-label="ORCID Profile" className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-600 text-gray-400 hover:bg-amber-500 hover:text-gray-900 hover:border-amber-500 transition duration-300 transform hover:scale-110">
-      <OrcidIcon />
-    </a>
+    <a href="https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-600 text-gray-400 hover:bg-amber-500 hover:text-gray-900 hover:border-amber-500 transition duration-300 transform hover:scale-110"><GoogleScholarIcon /></a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=7006488585" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-600 text-gray-400 hover:bg-amber-500 hover:text-gray-900 hover:border-amber-500 transition duration-300 transform hover:scale-110"><ScopusIcon /></a>
+    <a href="https://orcid.org/0000-0002-5977-2385" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-600 text-gray-400 hover:bg-amber-500 hover:text-gray-900 hover:border-amber-500 transition duration-300 transform hover:scale-110"><OrcidIcon /></a>
   </div>
 );
 
-// --- NANO-MOLECULAR BACKGROUND ---
 const ParticleBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0, active: false });
-
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
+    const canvas = canvasRef.current; if (!canvas) return;
+    const ctx = canvas.getContext('2d'); if (!ctx) return;
     let particles: { x: number; y: number; vx: number; vy: number; size: number }[] = [];
-    let animationFrameId: number;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    };
-
-    const initParticles = () => {
+    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); };
+    const init = () => {
       particles = [];
-      const particleCount = Math.floor((canvas.width * canvas.height) / 12000); 
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.8, // سرعة هادئة تشبه الجزيئات
-          vy: (Math.random() - 0.5) * 0.8,
-          size: Math.random() * 2 + 0.5,
-        });
-      }
+      for (let i = 0; i < 50; i++) particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5, size: Math.random() * 2 + 1 });
     };
-
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p, i) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        ctx.fillStyle = 'rgba(245, 158, 11, 0.5)';
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 180) { // روابط جزيئية ممتدة
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(245, 158, 11, ${0.2 * (1 - dist / 180)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        }
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1; if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.fillStyle = 'rgba(245, 158, 11, 0.4)'; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
       });
-      animationFrameId = requestAnimationFrame(draw);
+      requestAnimationFrame(draw);
     };
-
-    window.addEventListener('resize', resize);
-    resize();
-    draw();
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
-    };
+    window.addEventListener('resize', resize); resize(); draw();
+    return () => window.removeEventListener('resize', resize);
   }, []);
-
   return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40" />;
 };
 
-// --- REST OF COMPONENTS (Typewriter, Tilt3D, Reveal) REMAIN THE SAME ---
-// ... (Include Typewriter, Tilt3D, Reveal components from previous App.tsx)
+const Typewriter = ({ words }: { words: string[] }) => {
+  const [index, setIndex] = useState(0); const [subIndex, setSubIndex] = useState(0); const [reverse, setReverse] = useState(false);
+  useEffect(() => {
+    if (subIndex === words[index].length + 1 && !reverse) { setTimeout(() => setReverse(true), 2000); return; }
+    if (subIndex === 0 && reverse) { setReverse(false); setIndex((prev) => (prev + 1) % words.length); return; }
+    const timeout = setTimeout(() => setSubIndex((prev) => prev + (reverse ? -1 : 1)), reverse ? 50 : 100);
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse, words]);
+  return <span className="text-amber-500">{words[index].substring(0, subIndex)}|</span>;
+};
+
+const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
+  const [isVisible, setIsVisible] = useState(false); const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.1 });
+    if (ref.current) observer.observe(ref.current); return () => observer.disconnect();
+  }, []);
+  return <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${className}`}>{children}</div>;
+};
 
 export default function App() {
-  const [lang, setLang] = useState<Language>('ar'); // Default to Arabic for Egyptian Professor
+  const [lang, setLang] = useState<Language>('ar');
   const [content, setContent] = useState<Content>(contentAr);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [formData, setFormData] = useState<ContactFormData>({ name: '', email: '', phone: '', subject: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  useEffect(() => { setContent(lang === 'en' ? contentEn : contentAr); document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl'; }, [lang]);
 
-  useEffect(() => {
-    const stored = localStorage.getItem('lang') as Language;
-    if (stored) setLang(stored);
-  }, []);
-
-  useEffect(() => {
-    setContent(lang === 'en' ? contentEn : contentAr);
-    document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
-    document.documentElement.lang = lang;
-    localStorage.setItem('lang', lang);
-  }, [lang]);
-
-  // ... (Include useEffect for Scroll and handle functions from previous App.tsx)
-
-  const fontClass = lang === 'ar' ? "font-['Cairo']" : "font-['Plus_Jakarta_Sans']";
+  const scrollToSection = (id: string) => { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' }); };
 
   return (
-    <div className={`min-h-screen flex flex-col ${fontClass} overflow-x-hidden bg-gray-900 text-gray-100 relative pt-20 transition-all duration-300 antialiased`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-      
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-gray-800 h-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center h-full">
-          <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-xl md:text-2xl font-bold tracking-tight text-gray-100 hover:text-amber-500 transition">
-            {lang === 'en' ? 'Prof. Khaled Osman' : 'أ.د. خالد عثمان'}
-          </a>
-          <nav className="hidden md:flex gap-6 text-sm font-medium">
-            {content.nav.map((item) => (
-              <a key={item.id} href={`#${item.id}`} onClick={(e) => scrollToSection(e, item.id)} className={`transition-all duration-200 p-2 rounded-lg relative group cursor-pointer ${activeSection === item.id ? 'text-amber-500 font-bold' : 'text-gray-300 hover:text-amber-500'}`}>
-                {item.label}
-                <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-200 group-hover:w-full ${activeSection === item.id ? 'w-full' : ''}`}></span>
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-3">
-            <button onClick={() => setLang('en')} className={`px-3 py-1 rounded-full text-xs font-semibold border transition ${lang === 'en' ? 'bg-amber-500 text-gray-900 border-amber-500' : 'text-gray-300 border-gray-600 hover:border-amber-500'}`}>EN</button>
-            <button onClick={() => setLang('ar')} className={`px-3 py-1 rounded-full text-xs font-semibold border transition ${lang === 'ar' ? 'bg-amber-500 text-gray-900 border-amber-500' : 'text-gray-300 border-gray-600 hover:border-amber-500'}`}>AR</button>
-          </div>
+    <div className="min-h-screen bg-gray-900 text-gray-100 font-['Cairo']">
+      <header className="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur border-b border-gray-800 h-20 flex items-center justify-between px-8">
+        <div className="text-xl font-bold">{lang === 'en' ? 'Prof. Khaled Osman' : 'أ.د. خالد عثمان'}</div>
+        <div className="flex gap-4">
+          <button onClick={() => setLang('en')} className="px-3 py-1 border rounded text-xs">EN</button>
+          <button onClick={() => setLang('ar')} className="px-3 py-1 border rounded text-xs">AR</button>
         </div>
       </header>
 
-      <main className="flex-grow z-10">
-        
-        {/* HERO */}
-        <section id="home" className="relative py-20 md:py-32 flex items-center min-h-screen overflow-hidden">
-            <ParticleBackground />
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <Reveal className="space-y-6 md:space-y-8 order-2 md:order-1 text-center md:text-start">
-                <p className="text-xl md:text-2xl text-amber-500 font-semibold tracking-wide">{content.hero.greeting}</p>
-                <h1 className="text-4xl md:text-6xl font-extrabold text-gray-100 leading-tight">
-                  {content.hero.namePrefix} <span className="text-gray-100">{content.hero.name}</span>
-                </h1>
-                <div className="text-2xl md:text-3xl font-bold text-gray-300 h-10">
-                   <Typewriter words={content.hero.role} />
-                </div>
-                <p className="text-lg text-gray-400 max-w-xl leading-relaxed mx-auto md:mx-0">{content.hero.description}</p>
-                <div className="flex justify-center md:justify-start"><SocialIcons /></div>
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
-                  <a href="#publications" onClick={(e) => scrollToSection(e, 'publications')} className="px-8 py-3 rounded-full font-semibold text-gray-900 bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)] hover:bg-amber-400 hover:-translate-y-1 transition duration-300 inline-flex items-center gap-2 cursor-pointer">
-                    <span>{lang === 'en' ? 'View Publications' : 'عرض الأبحاث'}</span>
-                    <ExternalLink />
-                  </a>
-                </div>
-              </Reveal>
-              <div className="flex justify-center items-center p-4 md:p-8 order-1 md:order-2">
-                <div className="relative w-72 h-72 md:w-96 md:h-96 animate-float">
-                  <div className="absolute -inset-10 bg-amber-500/20 blur-3xl rounded-full pointer-events-none"></div>
-                  <div className="w-full h-full rounded-full border-4 border-gray-800 shadow-2xl bg-gray-800 relative z-10 ring-4 ring-amber-500/30 overflow-hidden">
-                    <img src="https://i.ibb.co/mF94JtHY/KHALID.jpg" alt="Prof. Khaled Osman" className="w-full h-full object-cover rounded-full transform hover:scale-110 transition duration-700" loading="eager" />
-                  </div>
-                </div>
+      <main>
+        <section id="home" className="min-h-screen flex items-center relative overflow-hidden px-8">
+          <ParticleBackground />
+          <div className="grid md:grid-cols-2 gap-12 items-center z-10 w-full max-w-7xl mx-auto">
+            <Reveal className="space-y-6">
+              <p className="text-amber-500 font-bold">{content.hero.greeting}</p>
+              <h1 className="text-5xl font-extrabold">{content.hero.namePrefix} {content.hero.name}</h1>
+              <div className="text-2xl font-bold text-gray-400"><Typewriter words={content.hero.role} /></div>
+              <p className="text-gray-400 max-w-lg">{content.hero.description}</p>
+              <SocialIcons />
+            </Reveal>
+            <div className="flex justify-center">
+              <div className="w-80 h-80 rounded-full border-4 border-amber-500/30 overflow-hidden shadow-2xl">
+                <img src="https://i.ibb.co/mF94JtHY/KHALID.jpg" alt="Prof. Khaled" className="w-full h-full object-cover" />
               </div>
             </div>
+          </div>
         </section>
 
-        {/* ... (Include ALL other sections: About, Experience, Certifications, Projects, Publications, Contact from original App.tsx) */}
+        <section id="about" className="py-20 bg-gray-800/50 px-8 text-center">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <h2 className="text-3xl font-bold border-b-2 border-amber-500 inline-block pb-2">{content.about.title}</h2>
+            <p className="text-lg text-gray-300" dangerouslySetInnerHTML={{ __html: content.about.p1 }} />
+            <p className="text-lg text-gray-300" dangerouslySetInnerHTML={{ __html: content.about.p2 }} />
+          </div>
+        </section>
 
+        <section id="experience" className="py-20 px-8 max-w-5xl mx-auto">
+           <h2 className="text-3xl font-bold text-center mb-12">{content.experience.title}</h2>
+           <div className="space-y-8 border-r-2 border-gray-700 pr-8">
+              {content.experience.items.map((item, i) => (
+                <div key={i} className="relative">
+                  <div className="absolute -right-10 top-2 w-4 h-4 bg-amber-500 rounded-full" />
+                  <h3 className="text-xl font-bold text-amber-500">{item.role}</h3>
+                  <p className="text-sm text-gray-400">{item.company} | {item.period}</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-300">{item.description.map((d, j) => <li key={j}>{d}</li>)}</ul>
+                </div>
+              ))}
+           </div>
+        </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 border-t border-gray-800 py-16 relative z-10 mt-auto text-center md:text-start">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div className="space-y-6 lg:col-span-2">
-            <h3 className="text-2xl font-bold text-gray-100">{content.footer.col1Title}</h3>
-            <p className="text-gray-400 text-base max-w-sm mx-auto md:mx-0">{content.footer.col1Text}</p>
-            <div className="flex justify-center md:justify-start"><SocialIcons className="gap-5" /></div>
-          </div>
-          {/* ... Footer quick links and contact info columns ... */}
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 mt-16 pt-8 border-t border-gray-800 text-sm">
-          <p>{content.footer.copyright}</p>
-        </div>
+      <footer className="py-12 border-t border-gray-800 text-center">
+         <p className="text-gray-500">{content.footer.copyright}</p>
       </footer>
     </div>
   );
