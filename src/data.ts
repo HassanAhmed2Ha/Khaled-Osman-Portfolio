@@ -174,22 +174,27 @@ export const contentEn: Content = {
     ]
   },
   services: {
-    title: 'Scientific Expertise',
+    title: 'Fields of Expertise',
     items: [
       {
-        title: 'Pesticide Toxicology',
-        description: 'Analyzing enzyme inhibitory action and toxicity of metals and pesticides to mammals[cite: 44].',
+        title: 'Academic Teaching',
+        description: 'Over 40 years of teaching Organic, Physical, Analytical, and Pesticide Chemistry, along with Environmental Pollution courses[cite: 41, 42, 43].',
+        iconPath: 'M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.832 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.168 18 16.5 18s-3.332.477-4.5 1.253'
+      },
+      {
+        title: 'Toxicology & Neurotoxicity',
+        description: 'Specialized research in enzyme inhibitory action, neurotoxicity assessment in workers, and delayed neuropathy of organophosphorus compounds[cite: 44, 45].',
         iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.008 12.008 0 002 15c0 4.848 3.447 8.521 7.24 9.077l.5.077c1.77.25 3.56-.27 4.96-1.57a12.002 12.002 0 007.24-9.077c.216-2.52.216-5.11 0-7.63z'
       },
       {
-        title: 'Ozone Technology',
-        description: 'Pioneering studies in removing pesticide residues from vegetables and fruits using ozone as a safe method[cite: 51].',
-        iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
+        title: 'Environmental Monitoring',
+        description: 'Monitoring pesticide residues, mycotoxins, and heavy metals in food, soil, and tea; including risk assessment using autoradiograph techniques[cite: 48, 57].',
+        iconPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20v-2c0-.656-.126-1.283-.356-1.857M9 20H4v-2a3 3 0 015-2.236M9 20v-2c0-.656-.126-1.283-.356-1.857m-4.735-3.143A8 8 0 0112 12c.706 0 1.378.163 1.996.444M12 12c-3.197 0-6.236-.884-8-2.5m16 2.5a8 8 0 00-8-8 8 8 0 00-8 8'
       },
       {
-        title: 'Bioremediation',
-        description: 'Advanced research in bioremediation of pesticides by microorganisms and animal manures[cite: 49, 50].',
-        iconPath: 'M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.832 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.168 18 16.5 18s-3.332.477-4.5 1.253'
+        title: 'Bioremediation & Green Tech',
+        description: 'Advanced studies in pesticide removal using microorganisms, animal manures, and pioneering Ozone technology[cite: 49, 50, 51, 55].',
+        iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
       }
     ]
   },
@@ -429,22 +434,27 @@ export const contentAr: Content = {
     ]
   },
   services: {
-    title: 'مجالات الخبرة العلمية',
+    title: 'مجالات الخبرة والأنشطة',
     items: [
       {
-        title: 'سمية المبيدات',
-        description: 'تحليل التأثير المثبط للمبيدات على الإنزيمات وتقييم السمية للمعادن والمبيدات على الثدييات[cite: 44].',
+        title: 'التدريس الأكاديمي',
+        description: 'أكثر من 40 عاماً في تدريس الكيمياء العضوية والفيزيائية والتحليلية وكيمياء المبيدات وتلوث البيئة[cite: 41, 42, 43].',
+        iconPath: 'M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.832 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.168 18 16.5 18s-3.332.477-4.5 1.253'
+      },
+      {
+        title: 'علم السموم والأعصاب',
+        description: 'أبحاث متخصصة في التأثير المثبط للإنزيمات، وتقييم السمية العصبية للعاملين، واعتلال الأعصاب الناتج عن الفوسفور العضوي[cite: 44, 45].',
         iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.008 12.008 0 002 15c0 4.848 3.447 8.521 7.24 9.077l.5.077c1.77.25 3.56-.27 4.96-1.57a12.002 12.002 0 007.24-9.077c.216-2.52.216-5.11 0-7.63z'
       },
       {
-        title: 'تكنولوجيا الأوزون',
-        description: 'دراسات رائدة في إزالة متبقيات المبيدات من الخضروات والفاكهة باستخدام الأوزون كطريقة آمنة[cite: 51].',
-        iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
+        title: 'الرصد البيئي وتقييم المخاطر',
+        description: 'رصد متبقيات المبيدات والسموم الفطرية والمعادن الثقيلة في الغذاء والتربة، وتقييم المخاطر باستخدام تقنيات التصوير الإشعاعي[cite: 47, 48].',
+        iconPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20v-2c0-.656-.126-1.283-.356-1.857M9 20H4v-2a3 3 0 015-2.236M9 20v-2c0-.656-.126-1.283-.356-1.857m-4.735-3.143A8 8 0 0112 12c.706 0 1.378.163 1.996.444M12 12c-3.197 0-6.236-.884-8-2.5m16 2.5a8 8 0 00-8-8 8 8 0 00-8 8'
       },
       {
-        title: 'المعالجة الحيوية',
-        description: 'أبحاث متقدمة في المعالجة الحيوية للمبيدات بواسطة الكائنات الدقيقة والأسمدة الحيوانية[cite: 49, 50].',
-        iconPath: 'M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.832 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.168 18 16.5 18s-3.332.477-4.5 1.253'
+        title: 'المعالجة الحيوية والتكنولوجيا الخضراء',
+        description: 'دراسات متقدمة في إزالة المبيدات باستخدام الكائنات الدقيقة والمخلفات العضوية، وتكنولوجيا الأوزون الرائدة[cite: 49, 50, 51, 55].',
+        iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
       }
     ]
   },
