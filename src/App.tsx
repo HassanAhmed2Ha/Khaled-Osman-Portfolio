@@ -310,7 +310,7 @@ export default function App() {
                   <div className="absolute -inset-4 bg-amber-500/30 blur-2xl rounded-full pointer-events-none animate-pulse"></div>
                   <div className="w-full h-full rounded-full border-4 border-gray-800 shadow-2xl bg-gray-800 relative z-10 ring-4 ring-amber-500/30 overflow-hidden flex items-center justify-center">
                     <div className="w-full h-full rounded-full overflow-hidden">
-                      <img src="https://i.ibb.co/mF94JtHY/KHALID.jpg" alt="Prof. Khaled Osman" className="w-full h-full object-cover rounded-full transform hover:scale-110 transition duration-700" loading="eager" />
+                      <img src="https://i.ibb.co/pjB7pWRB/KHALID.jpg" alt="Prof. Khaled Osman" className="w-full h-full object-cover rounded-full transform hover:scale-110 transition duration-700" loading="eager" />
                     </div>
                   </div>
                 </div>
