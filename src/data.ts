@@ -200,38 +200,35 @@ export const contentEn: Content = {
   },
   projects: {
     title: 'Featured Research Projects',
-    viewAll: 'View All Publications',
+    viewAll: 'View Full Research Record',
     items: [
       {
         title: 'Ozone Post-harvest Technology',
         image: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=800',
-        description: 'Production of date palm fruits free of acaricides residues using ozone technology as a post-harvest treatment[cite: 112].',
+        description: 'Principal Investigator for producing acaricide-free date palm fruits using Ozone technology as an innovative post-harvest treatment[cite: 112].',
         demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
         doiLink: '10.1007/s13197-013-1123-x'
       },
       {
-        title: 'Bioremediation of Animal Manures',
-        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800',
-        description: 'Scientific initiative for safe bioremediation of pesticide-contaminated animal manures to protect soil and water[cite: 100].',
+        title: 'Food Safety in Protected Agriculture',
+        image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=800',
+        description: 'Leading a PI project monitoring pesticide residues in greenhouse-cultivated vegetables to ensure public health safety standards[cite: 103].',
         demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
-        doiLink: '10.1016/j.ibiod.2008.10.004'
-      }
-    ]
-  },
-  publications: {
-    title: 'High-Impact Publications',
-    items: [
-      {
-        title: 'Ozone treatment as a green technology for removing acetamiprid residues',
-        meta: '2025 — Journal of Food Composition and Analysis',
-        description: 'Latest research on green technology for residue removal and its impact on vegetable quality[cite: 388, 390].',
-        doi: '10.1016/j.jfca.2025.107975'
+        doiLink: '10.1016/j.foodcont.2010.11.027'
       },
       {
-        title: 'Monitoring of pesticide residues in vegetables marketed in Al-Qassim region',
-        meta: '2010 — Ecotoxicology and Environmental Safety',
-        description: 'A landmark study assessing food safety and pesticide contamination in regional markets[cite: 270, 271].',
-        doi: '10.1016/j.ecoenv.2010.08.033'
+        title: 'Bioremediation of Animal Manures',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800',
+        description: 'Directing the biological treatment and remediation of pesticide-contaminated animal manures to protect soil and water resources[cite: 100].',
+        demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
+        doiLink: '10.1016/j.ibiod.2008.10.004'
+      },
+      {
+        title: 'Natural Honey Quality Assessment',
+        image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=800',
+        description: 'Principal Investigator for comprehensive monitoring of pesticide residues and heavy metals in natural honey within the Al-Qassim region[cite: 83].',
+        demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
+        doiLink: '10.1016/j.jfca.2010.08.033'
       }
     ]
   },
@@ -460,21 +457,35 @@ export const contentAr: Content = {
   },
   projects: {
     title: 'مشاريع بحثية مختارة',
-    viewAll: 'عرض كافة الأبحاث',
+    viewAll: 'عرض السجل البحثي الكامل',
     items: [
       {
-        title: 'تكنولوجيا الأوزون للتمور',
+        title: 'تطبيقات تكنولوجيا الأوزون',
         image: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=800',
-        description: 'الباحث الرئيسي لإنتاج تمور خالية من متبقيات المبيدات باستخدام تكنولوجيا الأوزون كمعاملة ما بعد الحصاد[cite: 112].',
+        description: 'الباحث الرئيسي لإنتاج تمور خالية من متبقيات المبيدات باستخدام تكنولوجيا الأوزون كمعاملة مبتكرة ما بعد الحصاد[cite: 112].',
         demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
         doiLink: '10.1007/s13197-013-1123-x'
       },
       {
-        title: 'المعالجة الحيوية للمخلفات',
+        title: 'سلامة الغذاء في الزراعة المحمية',
+        image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=800',
+        description: 'قيادة مشروع بحثي لرصد متبقيات المبيدات في خضروات الصوبات الزراعية لضمان أعلى معايير الصحة العامة[cite: 103].',
+        demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
+        doiLink: '10.1016/j.foodcont.2010.11.027'
+      },
+      {
+        title: 'المعالجة الحيوية للملوثات',
         image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800',
-        description: 'مبادرة بحثية للمعالجة الحيوية الآمنة للأسمدة الحيوانية الملوثة بالمبيدات لحماية التربة والمياه[cite: 100].',
+        description: 'إدارة أبحاث المعالجة البيولوجية للأسمدة الحيوانية الملوثة بالمبيدات لحماية الموارد الطبيعية من التربة والمياه[cite: 100].',
         demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
         doiLink: '10.1016/j.ibiod.2008.10.004'
+      },
+      {
+        title: 'تقييم جودة العسل الطبيعي',
+        image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=800',
+        description: 'الباحث الرئيسي لدراسة شاملة لرصد متبقيات المبيدات والمعادن الثقيلة في العسل الطبيعي بمنطقة القصيم[cite: 83].',
+        demoLink: 'https://scholar.google.com.eg/citations?user=9CRT1QoAAAAJ&hl=en',
+        doiLink: '10.1016/j.jfca.2010.08.033'
       }
     ]
   },
