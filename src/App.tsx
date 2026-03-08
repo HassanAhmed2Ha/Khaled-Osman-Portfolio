@@ -286,7 +286,7 @@ export default function App() {
       
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-gray-800 h-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center h-full">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center h-full">
           <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-xl md:text-2xl font-bold tracking-tight text-gray-100 hover:text-amber-500 transition">
             {lang === 'en' ? 'Prof. Khaled Osman' : 'أ.د. خالد عثمان'}
           </a>
@@ -320,7 +320,7 @@ export default function App() {
         {/* HERO */}
         <section id="home" className="relative py-20 md:py-32 flex items-center min-h-screen overflow-hidden">
             <ParticleBackground />
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <Reveal className="space-y-6 md:space-y-8 order-2 md:order-1 text-center md:text-start">
                 <p className="text-xl md:text-2xl text-amber-500 font-semibold tracking-wide text-center md:text-start">{content.hero.greeting}</p>
                 <h1 className="hero-title text-gray-100 leading-tight text-center md:text-start text-4xl md:text-6xl font-bold">
@@ -358,7 +358,7 @@ export default function App() {
 
         {/* ABOUT */}
         <section id="about" className="py-20 bg-gray-900/50">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-10"><span className="border-b-4 border-amber-500 pb-2">{content.about.title}</span></h2>
               <Reveal className="w-full">
                 <Tilt3D className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-700 shadow-2xl relative overflow-hidden text-start">
@@ -376,7 +376,7 @@ export default function App() {
 
         {/* SERVICES (SKILLS) */}
         <section id="services" className="py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.services.title}</span></h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {content.services.items.map((service, idx) => (
@@ -396,9 +396,9 @@ export default function App() {
 
         {/* EXPERIENCE */}
         <section id="experience" className="py-20 bg-gray-900/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.experience.title}</span></h2>
-              <div className="max-w-4xl mx-auto space-y-8 relative before:absolute before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-600 before:to-transparent before:left-5 md:before:left-1/2 md:before:-translate-x-1/2 rtl:before:left-auto rtl:before:right-5 rtl:md:before:right-auto rtl:md:before:left-1/2">
+              <div className="max-w-2xl mx-auto space-y-8 relative before:absolute before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-600 before:to-transparent before:left-5 md:before:left-1/2 md:before:-translate-x-1/2 rtl:before:left-auto rtl:before:right-5 rtl:md:before:right-auto rtl:md:before:left-1/2">
                 {content.experience.items.map((item, idx) => (
                   <Reveal key={idx} className="relative flex items-center justify-center w-full group">
                     <div className="timeline-dot absolute flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 bg-gray-900 group-hover:border-amber-500 group-hover:bg-amber-500/10 transition shrink-0 shadow shadow-gray-900 z-10 left-5 rtl:right-5 -translate-x-1/2 rtl:translate-x-1/2"><div className="w-3 h-3 bg-amber-500 rounded-full"></div></div>
@@ -422,7 +422,7 @@ export default function App() {
 
         {/* CERTIFICATIONS */}
         <section id="certifications" className="py-20 bg-gray-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.certifications.title}</span></h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {content.certifications.items.map((cert, idx) => (
@@ -442,9 +442,9 @@ export default function App() {
 
         {/* PROJECTS */}
         <section id="projects" className="py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.projects.title}</span></h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 {content.projects.items.map((project, idx) => (
                   <Reveal key={idx} className="h-full">
                      <Tilt3D className="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden hover:shadow-[0_10px_30px_-10px_rgba(245,158,11,0.3)] hover:scale-105 hover:border-amber-500/50 relative transition-all duration-300 flex flex-col group h-full text-start">
@@ -477,7 +477,7 @@ export default function App() {
 
         {/* PUBLICATIONS */}
         <section id="publications" className="py-20 bg-gray-900/50">
-             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
                <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.publications.title}</span></h2>
               <div className="space-y-6">
                 {content.publications.items.map((pub, idx) => (
@@ -501,7 +501,7 @@ export default function App() {
 
         {/* CONTACT */}
         <section id="contact" className="py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.contact.title}</span></h2>
               <Reveal className="max-w-2xl mx-auto">
                 <Tilt3D className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700">
@@ -546,7 +546,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-gray-900 border-t border-gray-800 py-16 relative z-10 mt-auto text-center md:text-start">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-6 lg:col-span-2">
             <h3 className="text-3xl font-bold text-gray-100">{lang === 'en' ? 'Prof. Khaled.' : 'أ.د. خالد.'}</h3>
             <p className="text-gray-400 text-base max-w-sm mx-auto md:mx-0">{content.footer.col1Text}</p>
@@ -567,7 +567,7 @@ export default function App() {
             </ul>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 mt-16 pt-8 border-t border-gray-800 text-sm">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 mt-16 pt-8 border-t border-gray-800 text-sm">
           <p>{content.footer.copyright}</p>
         </div>
       </footer>
