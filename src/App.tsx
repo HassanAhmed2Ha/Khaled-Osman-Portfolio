@@ -3,7 +3,7 @@ import { contentEn, contentAr } from './data';
 import { Content, Language } from './types';
 import { sendMessage, ContactFormData } from './contactService';
 
-// --- ICONS (Updated for Academic Identity) ---
+// --- ICONS (Academic Identity) ---
 const ChevronRight = () => (
   <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"></path></svg>
 );
@@ -34,7 +34,7 @@ const SocialIcons = ({ className = '' }: { className?: string }) => (
   </div>
 );
 
-// --- ANIMATED BACKGROUND (FAST CONNECTING PARTICLES) ---
+// --- ANIMATED BACKGROUND ---
 const ParticleBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0, active: false });
@@ -70,63 +70,39 @@ const ParticleBackground = () => {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
       particles.forEach((p, i) => {
-        p.x += p.vx;
-        p.y += p.vy;
-
+        p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
         ctx.fillStyle = 'rgba(245, 158, 11, 0.7)';
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
+          const dx = p.x - p2.x; const dy = p.y - p2.y; const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 150) {
             ctx.beginPath();
             ctx.strokeStyle = `rgba(245, 158, 11, ${0.4 * (1 - dist / 150)})`;
-            ctx.lineWidth = 0.8;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
+            ctx.lineWidth = 0.8; ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
           }
         }
-
         if (mouseRef.current.active) {
-          const dxM = p.x - mouseRef.current.x;
-          const dyM = p.y - mouseRef.current.y;
+          const dxM = p.x - mouseRef.current.x; const dyM = p.y - mouseRef.current.y;
           const distM = Math.sqrt(dxM * dxM + dyM * dyM);
           if (distM < 200) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(245, 158, 11, ${0.3 * (1 - distM / 200)})`;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
-            ctx.stroke();
+            ctx.beginPath(); ctx.strokeStyle = `rgba(245, 158, 11, ${0.3 * (1 - distM / 200)})`;
+            ctx.moveTo(p.x, p.y); ctx.lineTo(mouseRef.current.x, mouseRef.current.y); ctx.stroke();
           }
         }
       });
-
       animationFrameId = requestAnimationFrame(draw);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY, active: true };
-    };
+    const handleMouseMove = (e: MouseEvent) => { mouseRef.current = { x: e.clientX, y: e.clientY, active: true }; };
     const handleMouseLeave = () => { mouseRef.current.active = false; };
-
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
-    resize();
-    draw();
-
+    resize(); draw();
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -138,7 +114,7 @@ const ParticleBackground = () => {
   return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-50" />;
 };
 
-// --- UTILS ---
+// --- UTILS (Typewriter, Tilt3D, Reveal) ---
 const Typewriter = ({ words }: { words: string[] }) => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
@@ -152,12 +128,8 @@ const Typewriter = ({ words }: { words: string[] }) => {
 
   useEffect(() => {
     if (index >= words.length) return;
-    const typeSpeed = 100;
-    const deleteSpeed = 50;
-    const pauseTime = 2000;
-
     if (subIndex === words[index].length + 1 && !reverse) {
-      const timeout = setTimeout(() => setReverse(true), pauseTime);
+      const timeout = setTimeout(() => setReverse(true), 2000);
       return () => clearTimeout(timeout);
     }
     if (subIndex === 0 && reverse) {
@@ -165,9 +137,7 @@ const Typewriter = ({ words }: { words: string[] }) => {
       setIndex((prev) => (prev + 1) % words.length);
       return;
     }
-    const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, reverse ? deleteSpeed : typeSpeed);
+    const timeout = setTimeout(() => { setSubIndex((prev) => prev + (reverse ? -1 : 1)); }, reverse ? 50 : 100);
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse, words]);
 
@@ -184,16 +154,12 @@ const Tilt3D: React.FC<{ children: React.ReactNode; className?: string }> = ({ c
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = e.clientX - rect.left; const y = e.clientY - rect.top;
     const xRotation = -((y - rect.height / 2) / rect.height * 2);
     const yRotation = (x - rect.width / 2) / rect.width * 2;
     ref.current.style.transform = `perspective(1000px) scale(1.01) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
   };
-  const handleMouseLeave = () => {
-    if (!ref.current) return;
-    ref.current.style.transform = 'perspective(1000px) scale(1) rotateX(0) rotateY(0)';
-  };
+  const handleMouseLeave = () => { if (ref.current) ref.current.style.transform = 'perspective(1000px) scale(1) rotateX(0) rotateY(0)'; };
   return (
     <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className={`transition-transform duration-200 ease-out transform-style-preserve-3d will-change-transform ${className}`}>
       {children}
@@ -243,8 +209,7 @@ export default function App() {
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
+          const offsetTop = element.offsetTop; const offsetHeight = element.offsetHeight;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) setActiveSection(section);
         }
       }
@@ -254,13 +219,11 @@ export default function App() {
   }, [content.nav]);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    setMenuOpen(false);
+    e.preventDefault(); setMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
       const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const elementPositionCorrected = elementPosition + window.pageYOffset - offset;
+      const elementPositionCorrected = element.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: elementPositionCorrected, behavior: 'smooth' });
     }
   };
@@ -271,8 +234,7 @@ export default function App() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+    e.preventDefault(); setIsSubmitting(true);
     const response = await sendMessage(formData);
     alert(response.message);
     if (response.success) setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
@@ -286,8 +248,8 @@ export default function App() {
       
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-gray-800 h-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center h-full">
-          <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-xl md:text-2xl font-bold tracking-tight text-gray-100 hover:text-amber-500 transition">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center h-full">
+          <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-2xl md:text-3xl font-bold tracking-tight text-gray-100 hover:text-amber-500 transition">
             {lang === 'en' ? 'Prof. Khaled Osman' : 'أ.د. خالد عثمان'}
           </a>
           <nav className="hidden md:flex gap-6 text-sm font-medium">
@@ -320,7 +282,7 @@ export default function App() {
         {/* HERO */}
         <section id="home" className="relative py-20 md:py-32 flex items-center min-h-screen overflow-hidden">
             <ParticleBackground />
-            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <Reveal className="space-y-6 md:space-y-8 order-2 md:order-1 text-center md:text-start">
                 <p className="text-xl md:text-2xl text-amber-500 font-semibold tracking-wide text-center md:text-start">{content.hero.greeting}</p>
                 <h1 className="hero-title text-gray-100 leading-tight text-center md:text-start text-4xl md:text-6xl font-bold">
@@ -358,7 +320,7 @@ export default function App() {
 
         {/* ABOUT */}
         <section id="about" className="py-20 bg-gray-900/50">
-            <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-10"><span className="border-b-4 border-amber-500 pb-2">{content.about.title}</span></h2>
               <Reveal className="w-full">
                 <Tilt3D className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-700 shadow-2xl relative overflow-hidden text-start">
@@ -376,7 +338,7 @@ export default function App() {
 
         {/* SERVICES (SKILLS) */}
         <section id="services" className="py-20">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.services.title}</span></h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {content.services.items.map((service, idx) => (
@@ -396,9 +358,9 @@ export default function App() {
 
         {/* EXPERIENCE */}
         <section id="experience" className="py-20 bg-gray-900/50">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.experience.title}</span></h2>
-              <div className="max-w-2xl mx-auto space-y-8 relative before:absolute before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-600 before:to-transparent before:left-5 md:before:left-1/2 md:before:-translate-x-1/2 rtl:before:left-auto rtl:before:right-5 rtl:md:before:right-auto rtl:md:before:left-1/2">
+              <div className="max-w-4xl mx-auto space-y-8 relative before:absolute before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-600 before:to-transparent before:left-5 md:before:left-1/2 md:before:-translate-x-1/2 rtl:before:left-auto rtl:before:right-5 rtl:md:before:right-auto rtl:md:before:left-1/2">
                 {content.experience.items.map((item, idx) => (
                   <Reveal key={idx} className="relative flex items-center justify-center w-full group">
                     <div className="timeline-dot absolute flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 bg-gray-900 group-hover:border-amber-500 group-hover:bg-amber-500/10 transition shrink-0 shadow shadow-gray-900 z-10 left-5 rtl:right-5 -translate-x-1/2 rtl:translate-x-1/2"><div className="w-3 h-3 bg-amber-500 rounded-full"></div></div>
@@ -422,7 +384,7 @@ export default function App() {
 
         {/* CERTIFICATIONS */}
         <section id="certifications" className="py-20 bg-gray-900">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.certifications.title}</span></h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {content.certifications.items.map((cert, idx) => (
@@ -442,9 +404,9 @@ export default function App() {
 
         {/* PROJECTS */}
         <section id="projects" className="py-20">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.projects.title}</span></h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {content.projects.items.map((project, idx) => (
                   <Reveal key={idx} className="h-full">
                      <Tilt3D className="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden hover:shadow-[0_10px_30px_-10px_rgba(245,158,11,0.3)] hover:scale-105 hover:border-amber-500/50 relative transition-all duration-300 flex flex-col group h-full text-start">
@@ -477,7 +439,7 @@ export default function App() {
 
         {/* PUBLICATIONS */}
         <section id="publications" className="py-20 bg-gray-900/50">
-             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.publications.title}</span></h2>
               <div className="space-y-6">
                 {content.publications.items.map((pub, idx) => (
@@ -501,7 +463,7 @@ export default function App() {
 
         {/* CONTACT */}
         <section id="contact" className="py-20">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-100 text-center mb-16"><span className="border-b-4 border-amber-500 pb-2">{content.contact.title}</span></h2>
               <Reveal className="max-w-2xl mx-auto">
                 <Tilt3D className="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-gray-700">
@@ -546,7 +508,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-gray-900 border-t border-gray-800 py-16 relative z-10 mt-auto text-center md:text-start">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-6 lg:col-span-2">
             <h3 className="text-3xl font-bold text-gray-100">{lang === 'en' ? 'Prof. Khaled.' : 'أ.د. خالد.'}</h3>
             <p className="text-gray-400 text-base max-w-sm mx-auto md:mx-0">{content.footer.col1Text}</p>
@@ -567,7 +529,7 @@ export default function App() {
             </ul>
           </div>
         </div>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 mt-16 pt-8 border-t border-gray-800 text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 mt-16 pt-8 border-t border-gray-800 text-sm">
           <p>{content.footer.copyright}</p>
         </div>
       </footer>
