@@ -41,29 +41,117 @@ export const contentEn: Content = {
         description: [
           'Directing academic and research strategies for the department[cite: 38].',
           'Supervising high-impact research on pesticide residue removal and food safety[cite: 48, 51].',
-          'Leading departmental development and international research collaborations.'
+          'Leading departmental development and international research collaborations[cite: 128].'
         ]
       },
       {
-        role: 'Professor of Pesticide Chemistry & Toxicology',
-        company: 'Qassim University & King Saud University',
-        period: '2001 – 2012',
+        role: 'Professor of Pesticides Chemistry and Toxicology',
+        company: 'Alexandria University',
+        period: '2012 – Present',
+        location: 'Alexandria, Egypt',
+        description: [
+          'Conducting advanced studies on the bioremediation of pesticides by microorganisms[cite: 49].',
+          'Implementing green technology solutions using ozone for pesticide removal[cite: 51, 305].',
+          'Mentoring Ph.D. and Master’s students in environmental toxicology[cite: 153].'
+        ]
+      },
+      {
+        role: 'Professor of Pesticide Chemistry and Toxicology',
+        company: 'Faculty of Agriculture and Veterinary Medicine, Qassim University',
+        period: '2004 – 2012',
         location: 'Saudi Arabia',
         description: [
-          'Led significant research projects on pesticide residues in honey, dates, and vegetables[cite: 83, 103].',
-          'Expert in environmental toxicology and risk assessment for the Al-Qassim region[cite: 33, 34].',
-          'Published foundational studies on food safety and bioremediation[cite: 270, 277].'
+          'Served as Principle Investigator (PI) for projects on pesticide residues in dates and vegetables[cite: 80, 103].',
+          'Analyzed heavy metal contamination and characteristics of natural honey[cite: 53, 83].',
+          'Contributed to regional risk assessment and food safety standards[cite: 278].'
         ]
       },
       {
-        role: 'Visiting Research Scientist',
-        company: 'University of Padova & University of Texas',
-        period: '1988 – 1995',
-        location: 'Italy & USA',
+        role: 'Professor of Pesticide Chemistry and Toxicology',
+        company: 'Faculty of Agriculture and Veterinary Medicine, King Saud University',
+        period: '2001 – 2004',
+        location: 'Al-Qassim Branch, Saudi Arabia',
         description: [
-          'Conducted advanced research on neurotoxicity and organophosphorus compounds[cite: 20, 25].',
-          'Collaborated with international teams on clinical expression of neurotoxicity[cite: 188].',
-          'Developed expertise in biochemical and autoradiographic techniques[cite: 47].'
+          'Conducted research on chemical residues in human foodstuffs and breast milk[cite: 77, 78].',
+          'Evaluated the environmental impact of pesticides on local ecosystems[cite: 33].',
+          'Published foundational studies on human health risk assessment[cite: 229].'
+        ]
+      },
+      {
+        role: 'Professor of Pesticides Chemistry and Toxicology',
+        company: 'Alexandria University',
+        period: '2001 – Now',
+        location: 'Alexandria, Egypt',
+        description: [
+          'Performing comprehensive research on enzyme inhibitory action and toxicity of metals[cite: 44].',
+          'Assessing oxidative stress induced by different pesticides[cite: 244].',
+          'Serving as an expert reviewer for international toxicological journals [cite: 135-154].'
+        ]
+      },
+      {
+        role: 'Associate Professor of Pesticides Chemistry and Toxicology',
+        company: 'Alexandria University',
+        period: '1997 – 2001',
+        location: 'Alexandria, Egypt',
+        description: [
+          'Participated in biological monitoring of water pollution by pesticides[cite: 72].',
+          'Studied lead toxicity and blood levels in lead-related occupations[cite: 199].',
+          'Received the National Award for Environmental Sciences (2000)[cite: 125].'
+        ]
+      },
+      {
+        role: 'Visiting Scientist',
+        company: 'The University of Padova, Medical Branch',
+        period: '1994 – 1995',
+        location: 'Padova, Italy',
+        description: [
+          'Collaborated on clinical expressions of IDPN neurotoxicity in rats[cite: 189].',
+          'Focused on the promotion of organophosphate polyneuropathy[cite: 196, 197].',
+          'Utilized advanced biochemical techniques for neurotoxicology research[cite: 25, 188].'
+        ]
+      },
+      {
+        role: 'Assistant Professor of Pesticides Chemistry and Toxicology',
+        company: 'Alexandria University',
+        period: '1991 – 1997',
+        location: 'Alexandria, Egypt',
+        description: [
+          'Carried out studies on the effects of pesticides on the immune system[cite: 68].',
+          'Evaluated side effects of pesticides on non-target organisms like land snails[cite: 66, 169].',
+          'Honored with the National Award for Agricultural Sciences (1996)[cite: 124].'
+        ]
+      },
+      {
+        role: 'Visiting Research Fellow',
+        company: 'The University of Texas, Medical Branch',
+        period: '1988 – 1989',
+        location: 'Galveston, TX, USA',
+        description: [
+          'Researched whole-body autoradiographic disposition and elimination of Tri-o-cresyl Phosphate[cite: 173, 174].',
+          'Conducted risk assessment studies using autoradiograph techniques[cite: 47].',
+          'Engaged with international teams on clinical toxicology standards[cite: 20].'
+        ]
+      },
+      {
+        role: 'Assistant Lecturer',
+        company: 'Pesticides Chemistry Dept., Alexandria University',
+        period: '1987 – 1991',
+        location: 'Alexandria, Egypt',
+        description: [
+          'Instructed undergraduate labs in Organic, Physical, and Analytical Chemistry[cite: 41].',
+          'Completed Master’s research on toxicokinetics of insecticides[cite: 120, 121].',
+          'Performed assessment of delayed neuropathy in organophosphorus compounds[cite: 123].'
+        ]
+      },
+      {
+        role: 'Demonstrator',
+        company: 'Pesticides Chemistry Dept., Alexandria University',
+        period: '1983 – 1987',
+        location: 'Alexandria, Egypt',
+        description: [
+          'Supported teaching activities in Pesticides Chemistry and Toxicology[cite: 42].',
+          'Assisted in monitoring hazardous pollutants in the Alexandria region[cite: 60].',
+          'Contributed to Cotton Leafworm control research for the Ministry of Agriculture[cite: 65].'
         ]
       }
     ]
