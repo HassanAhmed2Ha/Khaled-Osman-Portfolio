@@ -232,6 +232,23 @@ export const contentEn: Content = {
       }
     ]
   },
+  publications: {
+    title: 'High-Impact Publications',
+    items: [
+      {
+        title: 'Ozone treatment as a green technology for removing acetamiprid residues',
+        meta: '2025 — Journal of Food Composition and Analysis',
+        description: 'Latest research on green technology for residue removal and its impact on vegetable quality[cite: 388, 390].',
+        doi: '10.1016/j.jfca.2025.107975'
+      },
+      {
+        title: 'Monitoring of pesticide residues in vegetables marketed in Al-Qassim region',
+        meta: '2010 — Ecotoxicology and Environmental Safety',
+        description: 'A landmark study assessing food safety and pesticide contamination in regional markets[cite: 270, 271].',
+        doi: '10.1016/j.ecoenv.2010.08.033'
+      }
+    ]
+  },
   contact: {
     title: 'Get In Touch',
     btnSend: 'Send Message',
@@ -503,6 +520,17 @@ export const contentAr: Content = {
         meta: '2010 — Ecotoxicology and Environmental Safety',
         description: 'دراسة مرجعية لتقييم سلامة الغذاء وتلوث المبيدات في الأسواق الإقليمية[cite: 270, 271].',
         doi: '10.1016/j.ecoenv.2010.08.033'
+      }
+    ]
+  },
+  publications: {
+    title: 'أبحاث مختارة',
+    items: [
+      {
+        title: 'تكنولوجيا الأوزون كحل أخضر',
+        meta: '2025 — Journal of Food Composition',
+        description: 'أحدث الأبحاث حول إزالة المتبقيات.',
+        doi: '10.1016/j.jfca.2025.107975'
       }
     ]
   },
